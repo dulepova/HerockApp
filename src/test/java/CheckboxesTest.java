@@ -11,14 +11,14 @@ import static org.testng.AssertJUnit.assertFalse;
 import static org.testng.AssertJUnit.assertTrue;
 
 public class CheckboxesTest {
-    public static final String URLCheckboxes = "http://the-internet.herokuapp.com/checkboxes";
+    public static final String URL_Checkboxes = "http://the-internet.herokuapp.com/checkboxes";
     @Test
     public static void checkboxFirst() {
         System.setProperty("webdriver.chrome.driver","src/test/resources/chromedriver.exe");
         WebDriver browser = new ChromeDriver();
         browser.manage().window().maximize();
         browser.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        browser.get(URLCheckboxes);
+        browser.get(URL_Checkboxes);
         WebElement checkbox1 = browser.findElements(By.cssSelector("[type=checkbox]")).get(0);
         assertFalse(checkbox1.isSelected());
         checkbox1.click();
@@ -33,13 +33,12 @@ public class CheckboxesTest {
         WebDriver browser = new ChromeDriver();
         browser.manage().window().maximize();
         browser.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        browser.get(URLCheckboxes);
+        browser.get(URL_Checkboxes);
         WebElement checkbox2 = browser.findElements(By.cssSelector("[type=checkbox]")).get(1);
         assertTrue(checkbox2.isSelected());
         checkbox2.click();
         assertFalse(checkbox2.isSelected());
         browser.quit();
-
     }
 }
 
